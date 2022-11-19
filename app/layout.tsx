@@ -1,5 +1,8 @@
 /* eslint-disable @next/next/no-head-element */
 import "../styles/globals.css";
+import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
 
 export default function RootLayout({
   children,
@@ -9,7 +12,31 @@ export default function RootLayout({
   return (
     <html>
       <head></head>
-      <body>{children}</body>
+      <main>
+        <Header />
+        <Navbar />
+        {children}
+        <Footer />
+      </main>
     </html>
   );
 }
+
+
+/* <nav>
+  <Link href="/">
+    Home
+  </Link>
+  <br></br>
+  <Link href="/bundestag">
+    Bundestag
+  </Link>
+  <br></br>
+  <Link href="/politiker:in">
+    Politiker:in
+  </Link>
+  <br></br>
+  <div>---</div>
+  <br></br>
+  {/* Sub-nav links needed  */
+/* </nav> */
