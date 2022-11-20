@@ -4,6 +4,7 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 
+
 export default function RootLayout({
   children,
 }: {
@@ -12,12 +13,14 @@ export default function RootLayout({
   return (
     <html>
       <head></head>
-      <main>
+      <nav>
         <Header />
         <Navbar />
+      </nav>
+      <main>
         {children}
-        <Footer />
       </main>
+        <Footer />
     </html>
   );
 }

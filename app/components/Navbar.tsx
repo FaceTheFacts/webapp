@@ -8,7 +8,7 @@ const links = [{
     route: "bundestag",
 },{
     label: "Politiker:in",
-    route: "politiker",
+    route: "politiker_in",
 }]
 
 export function Navbar() {
