@@ -2,9 +2,6 @@
 
 import React from "react";
 import { useForm } from "react-hook-form";
-
-
-// Client component. ISSUE: Input is not triggering the console log.
 interface IFormInputs {
   searchValue: string;
 }
@@ -16,8 +13,10 @@ export function Search() {
     // formState: { errors }
   } = useForm<IFormInputs>();
 
-  const onSubmit = (data: IFormInputs) => {
+  const onSubmit = async (data: any) => {
     console.log(data);
+    const a = await (await fetch('/api/politician')).json()
+    console.log(a)
   };
 
   return (
@@ -26,7 +25,7 @@ export function Search() {
           <div>
               <input type="text" {...register("searchValue")}  placeholder="Search..." />
           </div>
-        {/* <input type="submit" /> */}
+        <button type="submit">CLICK</button>
     </form>
     </>
   );
