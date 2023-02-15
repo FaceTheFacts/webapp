@@ -14,9 +14,9 @@ export function Search() {
   } = useForm<IFormInputs>();
 
   const onSubmit = async (data: any) => {
-    console.log(data);
-    const a = await (await fetch('/api/politician')).json()
-    console.log(a)
+    // console.log(data);
+    const ab = await (await fetch('/api/politician')).json()
+    // console.log(ab)
   };
 
   return (
@@ -30,3 +30,6 @@ export function Search() {
     </>
   );
 }
+
+// TODO: Cache #id, #name, #PO. for the dropdown list.
+// TODO: onSubmit route to /profile/[id] .
