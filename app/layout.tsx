@@ -2,7 +2,7 @@
 import "../styles/globals.css";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
+import { Search } from "./components/Search";
 
 
 export default function RootLayout({
@@ -15,9 +15,9 @@ export default function RootLayout({
       <head></head>
       <body>
         <nav>
-          <Header />
           <Navbar />
         </nav>
+        <Search />
         <main>
           {children}
         </main>
