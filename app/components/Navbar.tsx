@@ -1,5 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
+import logo from "/public/logo.svg"
 
+// Pages navigation needs to be clarified.
 const links = [{
     label: "Home",
     route: "/",
@@ -7,14 +10,18 @@ const links = [{
     label: "Bundestag",
     route: "bundestag",
 },{
-    label: "Politiker:in",
-    route: "profile",
+    label: "Search",
+    route: "search",
 }]
 
 export function Navbar() {
 
   return (
           <nav className="bg-black text-slate-200" >
+            <div>
+                <Image src={logo} height={33} width={35} alt="Face The Facts Logo" />
+                {/* <Logo /> */}
+            </div>
             <ul>
                 {links.map(({ label, route }) => (
                     <li key={route}>
