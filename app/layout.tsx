@@ -26,22 +26,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-
-/* <nav>
-  <Link href="/">
-    Home
-  </Link>
-  <br></br>
-  <Link href="/bundestag">
-    Bundestag
-  </Link>
-  <br></br>
-  <Link href="/politiker:in">
-    Politiker:in
-  </Link>
-  <br></br>
-  <div>---</div>
-  <br></br>
-  {/* Sub-nav links needed  */
-/* </nav> */
