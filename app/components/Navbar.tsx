@@ -1,20 +1,23 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../../public/assets/Logo_without_text.png";
+import bundestag from "../../public/assets/bundestag.png";
+import search from "../../public/assets/search.png";
+import appPage from "../../public/assets/app_page.png";
 
 // Pages navigation needs to be clarified.
 const links = [
   {
-    label: "Home",
-    route: "/",
-  },
-  {
-    label: "Bundestag",
+    label: <Image src={bundestag} alt="Bundestag Logo" />,
     route: "bundestag",
   },
   {
-    label: "Search",
+    label: <Image src={search} alt="Search Logo" />,
     route: "search",
+  },
+  {
+    label: <Image src={appPage} alt="App Page Logo" />,
+    route: "app-page",
   },
 ];
 
@@ -29,7 +32,12 @@ export function Navbar() {
       <ul>
         {links.map(({ label, route }) => (
           <li key={route}>
-            <Link href={route}> {label} </Link>
+            <Link
+              className="flex items-center justify-center my-3 p-3"
+              href={route}
+            >
+              {label}
+            </Link>
           </li>
         ))}
       </ul>
