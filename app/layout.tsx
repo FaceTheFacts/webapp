@@ -11,14 +11,17 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <head></head>
+      <head>
+        <title>Face The Facts</title>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className="flex h-screen">
-        <nav className="sticky top-0 h-screen bg-gray-900 w-64">
-          <div className="h-16 flex items-center justify-center">
+        <nav className="sticky top-0 h-screen bg-darkblue w-64 border-r border-solid border-darkblue-20">
+          <div className="flex items-center justify-center">
             <Navbar />
           </div>
         </nav>
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col bg-darkblue">
           <Header />
           <main className="flex-1 px-4 py-8 overflow-y-auto">{children}</main>
           <footer>
