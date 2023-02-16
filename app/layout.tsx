@@ -16,7 +16,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="flex h-screen">
-        <nav className="sticky top-0 h-screen bg-darkblue w-64 border-r border-solid border-darkblue-20">
+        <nav className="sticky top-0 h-screen bg-darkblue w-32 border-r border-solid border-darkblue-20">
           <div className="flex items-center justify-center">
             <Navbar />
           </div>
