@@ -1,6 +1,6 @@
 import React from "react";
 import "@testing-library/jest-dom";
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import { Navbar } from "@/app/components/Navbar";
 
 test("renders the Navbar component without errors", () => {
@@ -28,4 +28,8 @@ test("displays the correct number of links in the Navbar", () => {
   const { getAllByRole } = render(<Navbar />);
   const linkElements = getAllByRole("link");
   expect(linkElements).toHaveLength(4);
+});
+
+test("clicking on a link navigates to the correct route", () => {
+  // To Do: implement this test.
 });
