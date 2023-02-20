@@ -10,6 +10,7 @@ export default async function PoliticianPage({ params }) {
 	const  { id }  = params
 	const politiker : Politiker = await fetchPolitician(id);
   
+// ToDO:Create image component. Check for img status, when E403 return placeholder image.
   return (
     <div className="flex flex-row">
 		<Image
@@ -20,13 +21,13 @@ export default async function PoliticianPage({ params }) {
       	/>
         <h1>{politiker.label}</h1>
 		<ul className="p-4 space-y-4 bg-slate-400">
-			<li key={politiker.id}>
+			<li>
 				<ul>
-					{politiker.occupations.map((occupation) => (
-					<li key={politiker.id}> {occupation} </li>
+					{politiker.occupations.map((occupation, index) => (
+					<li key={index}> {occupation} </li>
 					))}
 				</ul>
-				<ul key={politiker.party.party_style.id}>{politiker.party.party_style.display_name}</ul>
+				<ul>{politiker.party.party_style.display_name}</ul>
 			</li>
 		</ul>
     </div>
