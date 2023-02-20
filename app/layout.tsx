@@ -1,8 +1,14 @@
 /* eslint-disable @next/next/no-head-element */
 import "../styles/globals.css";
+import { Inter } from "@next/font/google";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+
+const inter = Inter({
+  variable: '--font-inter',
+  subsets: ["latin"]
+});
 
 export default function RootLayout({
   children,
@@ -10,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
+    <html className={inter.variable}>
       <head>
         <title>Face The Facts</title>
         <link rel="icon" href="/favicon.ico" />
