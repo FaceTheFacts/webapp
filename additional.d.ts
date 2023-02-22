@@ -1,4 +1,4 @@
-type Politiker = {
+type Politician = {
   id: number;
   label: string;
   party: Party;
@@ -117,7 +117,7 @@ type Vote = {
 };
 
 type Poll = {
-  id: number;
+  id: number;params
   label: string;
   field_intro: string;
   field_poll_date: Date;
@@ -127,7 +127,7 @@ type Poll = {
 type Constituencies = {
   constituency_number: number;
   constituency_name: string;
-  politicians: Politiker;
+  politicians: Politician;
 };
 
 type Poll_results = {
