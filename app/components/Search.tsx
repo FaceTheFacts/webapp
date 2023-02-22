@@ -36,13 +36,9 @@ export function Search() {
           <div>
               <input type="text" {...register("searchValue")}  placeholder="Search..." />
           </div>
-        <button type="submit">CLICK</button>
     </form>
     <SearchResults results={searchResult} />
 
     </>
   );
 }
-
-// TODO: Cache #id, #name, #PO. for the dropdown list.
-// TODO: onSubmit route to /profile/[id] .
