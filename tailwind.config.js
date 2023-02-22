@@ -17,6 +17,7 @@ module.exports = {
         'darkblue-8': '#2A2B36',
         'darkblue-12': '#34353E',
         'darkblue-20': '#464750',
+        'darkgrey': '#252631',
       },
     },
   plugins: [],
