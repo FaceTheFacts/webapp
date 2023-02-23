@@ -1,18 +1,13 @@
-// Server component
-import Image from "next/image";
+import PlaceholderPic from "./PlaceholderPic";
 
-type Props = {
-    id : number
-}
+export default function ProfileImage({id} : {id: number}) {
 
-export default function ProfileImage({id} : Props) {
-    
     return (
-        <Image
+        <PlaceholderPic
             src={`https://image.facethefacts-api.de/${id}.jpg`}
-            width={100}
-            height={100}
+            width={146}
+            height={146}
             alt={"ProfilBild"}
         />
-    )
+    );
 }
