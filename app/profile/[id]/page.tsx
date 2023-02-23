@@ -1,5 +1,4 @@
 // Server component
-import Image from 'next/image';
 import { fetchPolitician } from '../../../domain/politician';
 import ProfileImage from '../../components/ProfileImage';
 
@@ -7,19 +6,11 @@ import ProfileImage from '../../components/ProfileImage';
 
 export default async function PoliticianPage({ params } : { params: { id: number } }) {
 	const  id  = params.id
-	console.log(id)
-	console.log(params)
 	const politician : Politician = await fetchPolitician(id);
   
 // ToDO:Create image component. Check for img status, when E403 return placeholder image.
   return (
     <div className="flex flex-row">
-		{/* <Image
-			src={`https://image.facethefacts-api.de/${politician.id}.jpg`}
-			width={100}
-			height={100}
-			alt={`Bild von ${politician.label}`}
-      	/> */}
 		<ProfileImage id={id} />
         <h1>{politician.label}</h1>
 		<ul className="p-4 space-y-4 bg-slate-400">
