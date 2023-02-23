@@ -18,6 +18,9 @@ module.exports = {
         'darkblue-12': '#34353E',
         'darkblue-20': '#464750',
       },
+      borderRadius: {
+        'large': '32px',
+      }
     },
   plugins: [],
   }
