@@ -12,7 +12,7 @@ export default async function PoliticianPage({ params } : { params: { id: number
   return (
     <div className="flex flex-row">
 		<ProfileImage id={id} />
-        <h1>{politician.label}</h1>
+        <h1 className='text-xl text-white font-semibold'>{politician.label}</h1>
 		<ul className="p-4 space-y-4 bg-slate-400">
 			<li>
 				<ul>
@@ -20,8 +20,7 @@ export default async function PoliticianPage({ params } : { params: { id: number
 					<li key={index}> {occupation} </li>
 					))}
 				</ul>
-				<ul>{politician.party.party_style.display_name}</ul>
-				<PartyTag party={params}/>
+				<PartyTag party={politician.party}/>
 				
 			</li>
 		</ul>
