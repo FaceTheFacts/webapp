@@ -1,14 +1,12 @@
-
-
-type PartyTag = {
-    party: Party,
-    // party_style: PartyStyle;
-};
+import { getPartyStyle } from '@/app/logic/partycases'
 
 export default function PartyTag({ party } : PartyTag) {
+    getPartyStyle(party)
+    const partyTagStyle = getPartyStyle(party)
+    const divShape = "rounded-lg max-w-fit mt-2.5"
     return (
-        <div >
-            {party.party_style.display_name}
+        <div className={[partyTagStyle, divShape].join(" ")}>
+            <div className="text-sm text-center px-1.75 py-0.875">{party.party_style.display_name}</div>
         </div>
     )
 }
