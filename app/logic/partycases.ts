@@ -20,7 +20,7 @@ export function getPartyStyle(party: Party) {
             const piratenStyle = "text-[#333333] bg-[#FFB430]"
             return piratenStyle;
         case 7:
-            const fwStyle = "text-white bg-[#F8F8F8] border-[#FD820B]"
+            const fwStyle = "text-[#2F5997] bg-[#F8F8F8] border-[#FD820B]"
             return fwStyle;
         case 8:
             const linkeStyle = "text-white bg-[#CD3E72]"
