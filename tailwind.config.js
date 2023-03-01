@@ -20,7 +20,12 @@ module.exports = {
       },
       borderRadius: {
         'large': '32px',
-      }
+      },
+      spacing: {
+        '0.875': '0.219rem',
+        '1.75': '0.438rem',
+        '2.5': '0.625rem',
+      },
     },
   plugins: [],
   }
