@@ -25,6 +25,11 @@ type PartyStyle = {
   border_color: string;
 };
 
+type PartyTag = {
+  party: Party,
+
+};
+
 type Cvs = {
   id: number;
   short_description: string;
