@@ -20,23 +20,33 @@ export default async function PoliticianPage({ params } : { params: { id: number
   return (
     <div className="flex flex-row px-22.75">
 		<div className="flex flex-row pt-6">
-			<ProfileImage id={id} />
-			<ul className="pl-10 py-5.75">
+			<div className="pr-10"> <ProfileImage id={id}/> </div>
+			<ul className="py-5.75 pr-29.5">
 				<h1 className='text-xl text-white font-semibold'>{politician.label}</h1>
 				<li className="font-semibold text-[#A2A2A7] pt-2.5">
 					{politician.occupations.join(", ")}
 					<PartyTag party={politician.party}/>
 				</li>
 			</ul>
-			<div className='flex flex-row justify-end'>
-				<div className='flex flex-row pl-5'>
+			<div className='flex flex-row justify-end content-center pt-6'>
+				<a target="_blank" rel="" href="" className='pr-5'> 
 					<Image src={aw_logo_2017_icon} alt="Aw icon" width={20} height={20}/>
+				</a>
+				<a target="_blank" rel="" href="" className='pr-5'> 
 					<Image src={wordpress_icon} alt="Wordpress icon" width={20} height={20}/>
+				</a>
+				<a target="_blank" rel="" href="" className='pr-5'> 
 					<Image src={twitter_icon} alt="Twitter icon" width={20} height={20}/>
+				</a>
+				<a target="_blank" rel="" href="" className='pr-5'> 
 					<Image src={facebook_icon} alt="Twitter icon" width={20} height={20}/>
+				</a>
+				<a target="_blank" rel="" href="" className='pr-5'> 
 					<Image src={instagram_icon} alt="Twitter icon" width={20} height={20}/>
+				</a>
+				<a target="_blank" rel="" href=""> 
 					<Image src={web_icon} alt="Twitter icon" width={20} height={20}/>
-				</div>
+				</a>
 			</div>
 		</div>
     </div>
