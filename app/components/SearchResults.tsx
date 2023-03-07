@@ -12,5 +12,4 @@ export default function SearchResults({results}: Props) {
         ))}    
         </ul>
     )
-
 }
