@@ -44,5 +44,3 @@ export function Navbar() {
     </div>
   );
 }
-
-// To Do: styling.
