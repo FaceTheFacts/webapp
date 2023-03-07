@@ -1,15 +1,22 @@
-export async function fetchPolitician(id: number) {
+const POLITICIAN_API_BASE_URL = process.env.POLITICIAN_API_BASE_URL || 'http://127.0.0.1:8000/v1/politician';
+
+export async function fetchPolitician(id: number): Promise<any> {
+  const url = `${POLITICIAN_API_BASE_URL}/${id}`;
+
   try {
-	  //Robert Habeck ID
-	//   const res = await fetch("http://127.0.0.1:8000/v1/politician/139064");
-	  
-	  //FAST api 
-	  //const res = await fetch("http://127.0.0.1:8000/v1/politician/139064?votes_start=0&votes_end=6");
-	  
-	  const res = await fetch(`http://127.0.0.1:8000/v1/politician/${id}`);
-	  const data = await res.json();
+    const res = await fetch(url);
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch politician data: ${res.status} ${res.statusText}`);
+    }
+
+    const data = await res.json();
     return data;
   } catch (error) {
-	console.error(error)
+	if (error instanceof Error) {
+    	throw new Error(`Failed to fetch politician data: ${error.message}`);
+	} else {
+		console.log('Unexpected error', error);
+	}
   }
 }
