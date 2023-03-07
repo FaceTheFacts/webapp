@@ -10,9 +10,6 @@ import	facebook_icon from "../../../public/assets/facebook_icon.png"
 import instagram_icon from "../../../public/assets/instagram_icon.png"
 import web_icon from "../../../public/assets/web_icon.png"
 
-
-//TO DO: Styling. Resolve use of input refs for the politicians #id
-
 export default async function PoliticianPage({ params } : { params: { id: number } }) {
 	const  id  = params.id
 	const politician : Politician = await fetchPolitician(id);
