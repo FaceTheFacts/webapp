@@ -23,7 +23,7 @@ export function Search() {
 
   const onSubmit = async (data: any) => {
     console.log("data", data);
-    // ToDO: type checking fot the searchValue x zipcode or name, and fetch a different route. 
+    // ToDO: type checking for the searchValue x zipcode & name. Provide output for when no seachValue found 404.
     const getSearchValue = await (await fetch(`http://127.0.0.1:8000/v1/search?text=${data.searchValue}`)).json()
     console.log(getSearchValue)
     setSearchResult(getSearchValue);
