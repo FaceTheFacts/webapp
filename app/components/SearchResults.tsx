@@ -6,9 +6,10 @@ interface Search {
   }
 
 export default function SearchResults({ searchResults }: { searchResults: Search[] }) {
-    if (searchResults.length === 0) {
-        return <p>No results.</p>
-    }
+    // "No Results" only after the search
+    // if (searchResults.length === 0) {
+    //     return <p className='text-white'>No results.</p>
+    // }
 
     const searchResultItems = searchResults.map((result) => (
         <li key={result.id}>
