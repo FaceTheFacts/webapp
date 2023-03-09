@@ -1,7 +1,6 @@
 import { getPartyStyle } from '@/app/logic/partycases'
 
 export default function PartyTag({ party } : PartyTag) {
-    getPartyStyle(party)
     const partyTagStyle = getPartyStyle(party)
     const divShape = "rounded-lg max-w-fit mt-2.5"
     return (
