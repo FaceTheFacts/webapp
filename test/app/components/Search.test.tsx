@@ -1,0 +1,33 @@
+import React from "react";
+import { render, fireEvent, screen, waitFor } from "@testing-library/react";
+import '@testing-library/jest-dom'
+import { Search, SearchInputs } from "@/app/components/Search";
+
+describe("Search", () => {
+  const mockOnSubmit = jest.fn();
+
+  beforeEach(() => {
+    jest.resetAllMocks();
+  });
+
+  it("should render the search input", () => {
+    const { getByPlaceholderText } = render(
+      <Search onSubmit={mockOnSubmit} />
+    );
+    expect(getByPlaceholderText("Search...")).toBeInTheDocument();
+  });
+
+  // Test fails with no-calls on the onSumit.
+  it("submits the search form with the search value entered by the user", () => {
+    const onSubmit = jest.fn();
+    const { getByLabelText } = render(<Search onSubmit={onSubmit} />);
+
+    const input = getByLabelText("search-form");
+
+    fireEvent.change(input, { target: { value: "test" } });
+    fireEvent.submit(input);
+
+    expect(onSubmit).toHaveBeenCalledWith({ searchValue: "test" });
+  });
+
+});

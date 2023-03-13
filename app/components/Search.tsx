@@ -7,7 +7,7 @@ import SearchResults from "@/app/components/SearchResults";
 interface SearchProps {
   onSubmit: (data: SearchInputs) => void;
 }
-interface SearchInputs {
+export interface SearchInputs {
   id: number;
   // postalCode: number;
   searchValue: string | number;
@@ -42,6 +42,7 @@ export function Search({ onSubmit }: SearchProps) {
           type="text" 
           {...register("searchValue")}  
           placeholder="Search..." 
+          aria-label="search-form"
         />
       </div>
     </form>
