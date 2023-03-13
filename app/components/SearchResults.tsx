@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-interface Search {
+export interface Search {
     id: number;
     label: string;
   }
