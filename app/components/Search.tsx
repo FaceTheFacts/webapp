@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import SearchResults from "@/app/components/SearchResults";
@@ -13,12 +11,11 @@ export interface SearchInputs {
   searchValue: string | number;
 }
 
-
 const API_URL = "http://127.0.0.1:8000/v1/search?text=";
 
 export function Search({ onSubmit }: SearchProps) {
   const { register, handleSubmit } = useForm<SearchInputs>();
-  const [searchResult, setSearchResult] = useState<Search[]> ([]);
+  const [searchResult, setSearchResult] = useState<Search[]>([]);
 
   const handleFormSubmit = async (data: SearchInputs) => {
     try {
@@ -36,17 +33,17 @@ export function Search({ onSubmit }: SearchProps) {
 
   return (
     <>
-    <form onSubmit={handleSubmit(handleFormSubmit)}>
-      <div>
-        <input 
-          type="text" 
-          {...register("searchValue")}  
-          placeholder="Search..." 
-          aria-label="search-form"
-        />
-      </div>
-    </form>
-    <SearchResults searchResults={searchResult} />
+      <form onSubmit={handleSubmit(handleFormSubmit)}>
+        <div>
+          <input
+            type="text"
+            {...register("searchValue")}
+            placeholder="Search..."
+            aria-label="search-form"
+          />
+        </div>
+      </form>
+      <SearchResults searchResults={searchResult} />
     </>
   );
 }
