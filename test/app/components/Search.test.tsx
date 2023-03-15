@@ -19,15 +19,17 @@ describe("Search", () => {
 
   // Test fails with no-calls on the onSumit.
   it("submits the search form with the search value entered by the user", () => {
-    const onSubmit = jest.fn();
-    const { getByLabelText } = render(<Search onSubmit={onSubmit} />);
+    const mockOnSubmit = jest.fn();
+    const { getByLabelText } = render(<Search onSubmit={mockOnSubmit} />);
 
     const input = getByLabelText("search-form");
 
-    fireEvent.change(input, { target: { value: "test" } });
+    fireEvent.change(input, { target: { searchValue: "test" } });
     fireEvent.submit(input);
+    fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
 
-    expect(onSubmit).toHaveBeenCalledWith({ searchValue: "test" });
+
+    expect(mockOnSubmit).toHaveBeenCalledWith({ searchValue: "test" });
   });
 
 });
