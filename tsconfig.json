@@ -28,14 +28,16 @@
       "@/app/*": [
         "app/*"
       ]
-    }
+    },
+    "types": ["node", "jest", "@testing-library/react"]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "additional.d.ts"
+    "additional.d.ts",
+    "global.d.ts"
   ],
   "exclude": [
     "node_modules"

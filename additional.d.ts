@@ -26,8 +26,7 @@ type PartyStyle = {
 };
 
 type PartyTag = {
-  party: Party,
-
+  party: Party;
 };
 
 type Cvs = {
@@ -122,7 +121,8 @@ type Vote = {
 };
 
 type Poll = {
-  id: number;params
+  id: number;
+  params;
   label: string;
   field_intro: string;
   field_poll_date: Date;
@@ -155,19 +155,22 @@ type Poll_links = {
   title: string;
 };
 
-type News =     {
-    id: string;
-    highlight: string;
-    images: Image
-    published: Date;
-    source: string;
-    title: string;
-    url: string
-}
+type News = {
+  id: string;
+  highlight: string;
+  images: Image;
+  published: Date;
+  source: string;
+  title: string;
+  url: string;
+};
 
 type Image = {
-      url: string;
-      title: string;
-      height: number;
-      width: number
-}
+  url: string;
+  title: string;
+  height: number;
+  width: number;
+};
+
+/// <reference types="next" />
+/// <reference types="next/types/global" />
