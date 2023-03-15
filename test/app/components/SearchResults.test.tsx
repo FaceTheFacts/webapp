@@ -18,8 +18,8 @@ describe("SearchResults component", () => {
     expect(resultItems).toHaveLength(searchResults.length);
 
     searchResults.forEach((result, index) => {
-        const link = screen.getByRole("link", { name: result.label });
-        expect(link.getAttribute("href")).toBe(`/profile/${result.id}`);
-      });
+      const link = screen.getByRole("link", { name: result.label });
+      expect(link.getAttribute("href")).toBe(`profile/${result.id}`);
     });
   });
+});

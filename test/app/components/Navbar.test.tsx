@@ -19,9 +19,9 @@ test("displays the correct links in the Navbar", () => {
   const searchLink = getByAltText("Search Logo").parentElement;
   const appPageLink = getByAltText("App Page Logo").parentElement;
 
-  expect(bundestagLink).toHaveAttribute("href", "/bundestag");
-  expect(searchLink).toHaveAttribute("href", "/search");
-  expect(appPageLink).toHaveAttribute("href", "/app-page");
+  expect(bundestagLink).toHaveAttribute("href", "bundestag");
+  expect(searchLink).toHaveAttribute("href", "search");
+  expect(appPageLink).toHaveAttribute("href", "app-page");
 });
 
 test("displays the correct number of links in the Navbar", () => {

@@ -2,13 +2,14 @@ import React from "react";
 import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Search, SearchInputs } from "@/app/components/Search";
+import { FetchMock } from "jest-fetch-mock";
 
 describe("Search", () => {
   const mockOnSubmit = jest.fn();
 
   beforeEach(() => {
     jest.resetAllMocks();
-    fetch.resetMocks(); // Reset fetch mocks before each test
+    fetchMock.resetMocks(); // Reset fetch mocks before each test
   });
 
   it("should render the search input", () => {
@@ -23,7 +24,9 @@ describe("Search", () => {
     const input = getByLabelText("search-form");
 
     // Mock the fetch response
-    fetch.mockResponseOnce(JSON.stringify([{ id: 1, name: "Test Result" }]));
+    fetchMock.mockResponseOnce(
+      JSON.stringify([{ id: 1, name: "Test Result" }])
+    );
 
     fireEvent.change(input, { target: { value: "test" } });
     fireEvent.submit(input);
