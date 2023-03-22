@@ -17,25 +17,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className={`flex h-screen ${inter.variable}`}>
+    <html className={`flex h-screen ${inter.variable}`}>
       <Head>
         <title>Face The Facts</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <nav className="sticky top-0 h-screen bg-darkblue w-32 border-r border-solid border-darkblue-20">
-        <div className="flex items-center justify-center">
-          <Navbar />
+      <body className="flex h-screen w-screen">
+        <nav className="sticky top-0 h-screen bg-darkblue w-32 border-r border-solid border-darkblue-20">
+          <div className="flex items-center justify-center">
+            <Navbar />
+          </div>
+        </nav>
+        <div className="flex-1 flex flex-col bg-darkblue">
+          <Header />
+          <main className="flex-1 px-4 py-8 overflow-y-auto" role="main">
+            {children}
+          </main>
+          <footer role="contentinfo">
+            <Footer />
+          </footer>
         </div>
-      </nav>
-      <div className="flex-1 flex flex-col bg-darkblue">
-        <Header />
-        <main className="flex-1 px-4 py-8 overflow-y-auto" role="main">
-          {children}
-        </main>
-        <footer role="contentinfo">
-          <Footer />
-        </footer>
-      </div>
-    </div>
+      </body>
+    </html>
   );
 }
