@@ -25,7 +25,7 @@ export default async function PoliticianPage({ params: { id } } : { params: { id
 
 	return (
 		<div className="flex flex-row px-22.75">
-			<div className="flex flex-row pt-6">
+			<div className="flex flex-row flex-shrink-0 pt-6">
 				<div className="pr-10"> <ProfileImage id={id}/> </div>
 				<ul className="py-5.75 pr-29.5">
 					<h1 className='text-xl text-white font-semibold'>{politician.label}</h1>
