@@ -1,5 +1,6 @@
-// Server component
+'use client'
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import { fetchPolitician } from '../../../domain/politician';
 import ProfileImage from '@/app/components/ProfileImage';
 import PartyTag from '@/app/components/PartyTag';
@@ -11,37 +12,56 @@ import	facebookIcon from "../../../public/assets/facebook_icon.png"
 import instagramIcon from "../../../public/assets/instagram_icon.png"
 import webIcon from "../../../public/assets/web_icon.png"
 
-export default async function PoliticianPage({ params: { id } } : { params: { id: number } }) {
-	const politician : Politician = await fetchPolitician(id);
+export default function PoliticianPage({ params: { id } }: { params: { id: number } }) {
+	const [politician, setPolitician] = useState<Politician | null>(null);
+  
+	useEffect(() => {
+	  async function fetchPoliticianData() {
+		try {
+		  const politicianData: Politician = await fetchPolitician(id);
+		  setPolitician(politicianData);
+		} catch (error) {
+		  console.log(error);
+		}
+	  }
+  
+	  fetchPoliticianData();
+	}, [id]);
 
 	const socialMediaIcons = [
-		{icon: awIcon, alt: "Icon", url:""},
-		{icon: wordpressIcon, alt: "Icon", url:""},
-		{icon: twitterIcon, alt: "Icon", url:""},
-		{icon: facebookIcon, alt: "Icon", url:""},
-		{icon: instagramIcon, alt: "Icon", url:""},
-		{icon: webIcon, alt: "Icon", url:""},
-	]
+		{ icon: awIcon, alt: 'Icon', url: '' },
+		{ icon: wordpressIcon, alt: 'Icon', url: '' },
+		{ icon: twitterIcon, alt: 'Icon', url: '' },
+		{ icon: facebookIcon, alt: 'Icon', url: '' },
+		{ icon: instagramIcon, alt: 'Icon', url: '' },
+		{ icon: webIcon, alt: 'Icon', url: '' },
+	  ];
+	
+	  if (!politician) {
+		return null;
+	  }
 
 	return (
-		<div className="flex flex-row px-22.75">
-			<div className="flex flex-row flex-shrink-0 pt-6">
-				<div className="pr-10"> <ProfileImage id={id}/> </div>
-				<ul className="py-5.75 pr-29.5">
-					<h1 className='text-xl text-white font-semibold'>{politician.label}</h1>
-					<li className="font-semibold text-[#A2A2A7] pt-2.5">
-						{politician.occupations.join(", ")}
-						<PartyTag party={politician.party}/>
-					</li>
-				</ul>
-				<div className="flex flex-row justify-end content-center pt-6">
-					{socialMediaIcons.map((icon, index) => (
-						<a key={index} target="_blank" rel="" href={icon.url} className="pr-5">
-							<Image src={icon.icon} alt={icon.alt} width={20} height={20}/>
-						</a>					
-					))}
+		<>
+			<div className="flex flex-row px-22.75">
+				<div className="flex flex-row flex-shrink-0 pt-6">
+					<div className="pr-10"> <ProfileImage id={id}/> </div>
+					<ul className="py-5.75 pr-29.5">
+						<h1 className='text-xl text-white font-semibold'>{politician.label}</h1>
+						<li className="font-semibold text-[#A2A2A7] pt-2.5">
+							{politician.occupations.join(", ")}
+							<PartyTag party={politician.party}/>
+						</li>
+					</ul>
+					<div className="flex flex-row justify-end content-center pt-6">
+						{socialMediaIcons.map((icon, index) => (
+							<a key={index} target="_blank" rel="" href={icon.url} className="pr-5">
+								<Image src={icon.icon} alt={icon.alt} width={20} height={20}/>
+							</a>					
+						))}
+					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 }
