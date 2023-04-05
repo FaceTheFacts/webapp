@@ -25,10 +25,6 @@ type PartyStyle = {
   border_color: string;
 };
 
-type PartyTag = {
-  party: Party;
-};
-
 type Cvs = {
   id: number;
   short_description: string;
@@ -36,22 +32,22 @@ type Cvs = {
   raw_text: string;
 };
 
-type Weblinks = {
+type WebLinks = {
   politician_id: number;
   link: string;
   id: number;
 };
 
-type Sidejob = {
+type SideJob = {
   id: number;
   label: string;
   income_level: string;
   interval: string;
   created: Date;
-  sidejob_organization: SidejobOrganization;
+  sidejob_organization: SideJobOrganization;
 };
 
-type SidejobOrganization = {
+type SideJobOrganization = {
   id: number;
   label: string;
 };
@@ -82,7 +78,7 @@ type Poll = {
   poll_passed: boolean;
 };
 
-type Topic_ids_of_latest_committee = number[];
+type TopicIdsOfLatestCommittee = number[];
 
 type Position = {
   id: number;
@@ -135,7 +131,7 @@ type Constituencies = {
   politicians: Politician;
 };
 
-type Poll_results = {
+type PollResults = {
   id: number;
   poll_id: number;
   fraction: {
@@ -150,7 +146,7 @@ type Poll_results = {
   total_no_show: number;
 };
 
-type Poll_links = {
+type PollLinks = {
   uri: string;
   title: string;
 };
