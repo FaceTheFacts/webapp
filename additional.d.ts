@@ -3,10 +3,10 @@ type Politician = {
   label: string;
   party: Party;
   occupations: string[];
-  sidejobs: Sidejob;
+  sidejobs: SideJob;
   cvs: Cvs;
   abgeordnetenwatch_url: string;
-  weblinks: Weblinks;
+  weblinks: WebLinks;
   votes_and_polls: VoteAndPoll;
   topic_ids_of_latest_committee: number[];
 };
