@@ -14,14 +14,14 @@ describe("Search", () => {
 
   it("should render the search input", () => {
     const { getByPlaceholderText } = render(<Search onSubmit={mockOnSubmit} />);
-    expect(getByPlaceholderText("Search...")).toBeInTheDocument();
+    expect(getByPlaceholderText("Suche nach Politker:innen oder PLZ")).toBeInTheDocument();
   });
 
   it("submits the search form with the search value entered by the user", async () => {
     const mockOnSubmit = jest.fn();
     const { getByLabelText } = render(<Search onSubmit={mockOnSubmit} />);
 
-    const input = getByLabelText("search-form");
+    const input = getByLabelText("Suchfeld. Geben Sie Ihre Suchanfrage ein und drücken Sie zum Absenden die Eingabetaste.");
 
     // Mock the fetch response
     fetchMock.mockResponseOnce(
