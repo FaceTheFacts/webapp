@@ -53,8 +53,8 @@ type SideJobOrganization = {
 };
 
 type VoteAndPoll = {
-  Vote: Vote;
-  Poll: Poll;
+  vote: Vote;
+  poll: Poll;
 };
 
 type Vote = {
