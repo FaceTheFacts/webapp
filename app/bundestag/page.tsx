@@ -1,8 +1,3 @@
-// "use client"
-// function getPolitician(id) {
-//   const res = fetch(`http://127.0.0.1:8000/v1/politician/${id}`).then(res => res.json())
-// }
-
 export default function BundestagPage() {
   return (
     <div>
@@ -12,4 +7,3 @@ export default function BundestagPage() {
     </div>
   );
 }
-

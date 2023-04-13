@@ -5,7 +5,6 @@ import { Search } from "./components/Search";
 
 interface SearchInputs {
   id: number;
-  // postalCode: number;
   searchValue: string | number;
 }
 
