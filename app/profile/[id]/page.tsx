@@ -14,40 +14,51 @@ import webIcon from "../../../public/assets/web_icon.png"
 
 export default function PoliticianPage({ params: { id } }: { params: { id: number } }) {
 	const [politician, setPolitician] = useState<Politician | null>(null);
+	const [isLoading, setIsLoading] = useState<boolean>(true);
   
 	useEffect(() => {
-	  async function fetchPoliticianData() {
-		try {
-		  const politicianData: Politician = await fetchPolitician(id);
-		  setPolitician(politicianData);
-		} catch (error) {
-		  console.log(error);
+		async function fetchPoliticianData() {
+			try {
+			const politicianData: Politician = await fetchPolitician(id);
+			setPolitician(politicianData);
+			} catch (error) {
+			console.log(error);
+			} finally {
+				setIsLoading(false);
+			}
 		}
-	  }
   
-	  fetchPoliticianData();
+		fetchPoliticianData();
 	}, [id]);
 
 	const socialMediaIcons = [
-		{ icon: awIcon, alt: 'Icon', url: '' },
-		{ icon: wordpressIcon, alt: 'Icon', url: '' },
-		{ icon: twitterIcon, alt: 'Icon', url: '' },
-		{ icon: facebookIcon, alt: 'Icon', url: '' },
-		{ icon: instagramIcon, alt: 'Icon', url: '' },
-		{ icon: webIcon, alt: 'Icon', url: '' },
-	  ];
+		{ icon: awIcon, alt: 'Abgeordnetenwatch Link', url: '' },
+		{ icon: wordpressIcon, alt: 'Wikipedia Link', url: '' },
+		{ icon: twitterIcon, alt: 'Twitter Link', url: '' },
+		{ icon: facebookIcon, alt: 'Facebook Link', url: '' },
+		{ icon: instagramIcon, alt: 'Instagram Link', url: '' },
+		{ icon: webIcon, alt: 'Homepage Link', url: '' },
+	];
 	
-	  if (!politician) {
+	if (isLoading) {
+		return <div className='text-white'>Bitte warten. Ergebnisse werden geladen.</div>;
+	}
+
+	if (!politician) {
 		return null;
-	  }
+	}
 
 	return (
 		<>
 			<div className="flex flex-row px-22.75">
 				<div className="flex flex-row flex-shrink-0 pt-6">
-					<div className="pr-10"> <ProfileImage id={id}/> </div>
+					<div className="pr-10"> 
+						<ProfileImage id={id}/>
+					</div>
 					<ul className="py-5.75 pr-29.5">
-						<h1 className='text-xl text-white font-semibold'>{politician.label}</h1>
+						<h1 className='text-xl text-white font-semibold'>
+							{politician.label}
+						</h1>
 						<li className="font-semibold text-[#A2A2A7] pt-2.5">
 							{politician.occupations.join(", ")}
 							<PartyTag party={politician.party}/>
@@ -56,7 +67,7 @@ export default function PoliticianPage({ params: { id } }: { params: { id: numbe
 					<div className="flex flex-row justify-end content-center pt-6">
 						{socialMediaIcons.map((icon, index) => (
 							<a key={index} target="_blank" rel="" href={icon.url} className="pr-5">
-								<Image src={icon.icon} alt={icon.alt} width={20} height={20}/>
+								<Image src={icon.icon} alt={icon.alt} height={20}/>
 							</a>					
 						))}
 					</div>
