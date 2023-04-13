@@ -1,10 +1,21 @@
-import "../styles/globals.css";
+"use client";
 
-export default function HomePage() {
+import "../styles/globals.css";
+import { Search } from "./components/Search";
+
+interface SearchInputs {
+  id: number;
+  searchValue: string | number;
+}
+
+export default function HomePage( ) {
+  const handleSubmit = (data: SearchInputs) => {
+    console.log(data);
+  };
+
   return (
-    <div>
-      <h1>Home Page</h1>
-      <p className="text-red-600">Some content</p>
+    <div className="flex h-full flex-col justify-center items-center bg-darkblue">
+      <Search onSubmit={handleSubmit}/>
     </div>
   );
 }
